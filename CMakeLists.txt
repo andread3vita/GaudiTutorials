@@ -8,5 +8,5 @@ find_package(EDM4HEP REQUIRED)
 add_compile_options(-Wall -Wextra -Wno-unused-parameter -Wno-unused-variable)
 
 # Delegate build to subdirectory
-add_subdirectory(HandsOn1)
+add_subdirectory(EventStats)
 add_subdirectory(MoliereRadiusFunctional)
