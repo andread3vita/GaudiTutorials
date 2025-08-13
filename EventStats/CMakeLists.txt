@@ -1,6 +1,6 @@
 file(GLOB _plugin_sources *.cpp)
 
-gaudi_add_module(HandsOn1Plugins
+gaudi_add_module(EventStatsPlugins
   SOURCES ${_plugin_sources}
   LINK
     Gaudi::GaudiKernel
@@ -8,7 +8,7 @@ gaudi_add_module(HandsOn1Plugins
     EDM4HEP::edm4hep
 )
 
-install(TARGETS HandsOn1Plugins
+install(TARGETS EventStatsPlugins
   EXPORT ${CMAKE_PROJECT_NAME}Targets
   RUNTIME DESTINATION "${CMAKE_INSTALL_BINDIR}" COMPONENT bin
   LIBRARY DESTINATION "${CMAKE_INSTALL_LIBDIR}" COMPONENT shlib
