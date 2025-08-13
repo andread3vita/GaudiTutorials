@@ -2,22 +2,23 @@ import os
 
 from Gaudi.Configuration import INFO
 from k4FWCore import IOSvc, ApplicationMgr
-from Configurables import EventDataSvc, GeoSvc
+from Configurables import EventDataSvc
 
 io_svc = IOSvc("IOSvc")
 io_svc.Input = "/afs/cern.ch/work/a/adevita/public/DD4hepTutorials/simplecalo.root"
 io_svc.Output = "output.root"
 
 from Configurables import EventStats
-        
+
 eventStats_functional = EventStats("EventStats",
         
     InputCaloHitCollection=["simplecaloRO"],
-    EventStats=["TotalDepositedEnergy", "XPosBarycentre", "YPosBarycentre", "ZPosBarycentre",
-                 "XPosMax", "YPosMax", "ZPosMax", "XPosMin", "YPosMin", "ZPosMin",
-                 "MaxEnergyValue", "MinEnergyValue", "MaxEnergyLayerPosX", 
-                 "MaxEnergyLayerPosY", "MaxEnergyLayerPosZ",
-                 "MinEnergyLayerPosX", "MinEnergyLayerPosY", "MinEnergyLayerPosZ"],
+    EnergyStats=["TotalDepositedEnergy", "MaxEnergyValue", "MinEnergyValue"],
+    EnergyBarycentre=["EnergyBarycentre"],
+    MaxEnergyPosition=["MaxEnergyPos"],
+    MinEnergyPosition=["MinEnergyPos"],
+    MaxXYZvalues=["MaxXYZvalues"],
+    MinXYZvalues=["MinXYZvalues"],
     plotHistograms=True,
     OutputLevel=INFO
 )
