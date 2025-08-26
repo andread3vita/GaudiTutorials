@@ -8,10 +8,9 @@ This repository hosts tutorials for using the `Gaudi` software.
 source /cvmfs/sw.hsf.org/key4hep/setup.sh -r 2025-05-29
 git clone git@github.com:s6anloes/GaudiTutorials.git
 cd GaudiTutorials
+k4_local_repo # To ensure the system can locate the DD4hep detector builders:
 mkdir build install
 cd build
 cmake .. -DCMAKE_INSTALL_PREFIX=../install 
-make install -j 6
+make install -j 8
 cd ..
-# The following command configures the environment to ensure the system can locate the DD4hep detector builders:
-k4_local_repo
