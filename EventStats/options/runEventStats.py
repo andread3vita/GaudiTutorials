@@ -30,9 +30,10 @@ from Configurables import EventStats
 eventStats_functional = EventStats(
     "EventStats",
     
-    InputCaloHitCollection= [??????],     # TODO: Specify the name of the input calorimeter hit collection
+    InputCaloHitCollection= [??????],       # TODO: Specify the name of the input calorimeter hit collection
     OutputEnergyBarycentre=["EnergyBarycentreX", "EnergyBarycentreY", "EnergyBarycentreZ"],
-    ?????? = [??????]                  # TODO: Add the output collection for total energy
+    ?????? = [??????],                      # TODO: Add the output collection for total energy
+    ?????? = ??????,                        # TODO: Add the gaudi property to save histogram
     OutputLevel=INFO
 )
 
