@@ -1,26 +1,55 @@
 # Create a Python script to run the EventStats algorithm
 # This script sets up the necessary services and configurations for the EventStats algorithm
 
-# Here is some information about corresponding Gaudi::Functional:
-# - inputCollection's name: InputCaloHitCollection
-# - outputCollection' names: EnergyStats, EnergyBarycentre, MaxEnergyPosition, MinEnergyPosition, MaxPosition, MinPosition
-# - gaudi property's name: plotHistograms
-
-# What is stored in the outputCollections?
-# - EnergyStats: Total deposited energy, maximum and minimum energy values (vector of 3 vectors, each with 1 element)
-# - EnergyBarycentre: Barycentre positions in X, Y, Z of the energy deposits (vector of 3 elements)
-# - MaxEnergyPosition: Position of the maximum energy deposit in X, Y, Z (vector of 3 elements)
-# - MinEnergyPosition: Position of the minimum energy deposit in X, Y, Z (vector of 3 elements)
-# - MinXYZvalues: Minimum positions in X, Y, Z of the energy deposits (vector of 3 elements)
-# - MaxXYZvalues: Maximum positions in X, Y, Z of the energy deposits (vector of 3 elements)
-
-# What is the gaudi property?
-# - plotHistograms: Boolean indicating whether to plot histograms of the energy statistics (distribution of total energy, maximum and minimum energy values)
-
-
 # How to write the script:
 # 1. Import necessary modules (e.g. gaudi functional, application manager, services)
 # 2. Set up the input and output services (IOSvc)
 # 3. Configure the EventStats algorithm with the required parameters
 # 4. Create the Application Manager and set the top algorithm
 
+from Gaudi.Configuration import INFO
+from k4FWCore import IOSvc, ApplicationMgr
+from Configurables import EventDataSvc
+
+io_svc = IOSvc("IOSvc")
+io_svc.Input =      # TODO: Specify the input file path
+io_svc.Output =     # TODO: Specify the output file path
+
+from Configurables import EventStats
+
+# ==========================================
+# Exercise: Configure the EventStats Module
+# ==========================================
+
+# Task:
+# Complete the EventStats configuration by filling in the missing input and output collections.
+
+# Exercise:
+# 1. Fill in the missing values (??????)
+
+eventStats_functional = EventStats(
+    "EventStats",
+    
+    InputCaloHitCollection= [??????],     # TODO: Specify the name of the input calorimeter hit collection
+    OutputEnergyBarycentre=["EnergyBarycentreX", "EnergyBarycentreY", "EnergyBarycentreZ"],
+    ?????? = [??????]                  # TODO: Add the output collection for total energy
+    OutputLevel=INFO
+)
+
+# ==========================================
+# Exercise: Configure the ApplicationMgr
+# ==========================================
+
+# Task:
+# Add EventStats to the pipeline
+
+# Exercise:
+# 1. Fill in the missing values (??????)
+
+app_mgr = ApplicationMgr(
+    TopAlg=[??????],
+    EvtSel='NONE',
+    EvtMax=-1,
+    ExtSvc=[EventDataSvc("EventDataSvc")],
+    StopOnSignal=True,
+)
