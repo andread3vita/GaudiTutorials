@@ -1,5 +1,3 @@
-import os
-
 from Gaudi.Configuration import INFO
 from k4FWCore import IOSvc, ApplicationMgr
 from Configurables import EventDataSvc
@@ -13,13 +11,9 @@ from Configurables import EventStats
 eventStats_functional = EventStats("EventStats",
         
     InputCaloHitCollection=["simplecaloRO"],
-    EnergyStats=["TotalDepositedEnergy", "MaxEnergyValue", "MinEnergyValue"],
-    EnergyBarycentre=["EnergyBarycentre"],
-    MaxEnergyPosition=["MaxEnergyPos"],
-    MinEnergyPosition=["MinEnergyPos"],
-    MaxXYZvalues=["MaxXYZvalues"],
-    MinXYZvalues=["MinXYZvalues"],
-    plotHistograms=True,
+    OutputEnergyBarycentre=["EnergyBarycentreX", "EnergyBarycentreY", "EnergyBarycentreZ"],
+    OutputTotalEnergy=["TotalEnergy"],
+    SaveHistograms=True,
     OutputLevel=INFO
 )
 
